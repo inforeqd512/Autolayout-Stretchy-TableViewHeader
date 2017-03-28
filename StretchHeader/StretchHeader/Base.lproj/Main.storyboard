@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vi6-NU-bD5" id="qEZ-W2-5VY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -51,6 +51,7 @@
                             </subviews>
                             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
+                                <constraint firstItem="Aho-jI-4Mm" firstAttribute="top" secondItem="QJz-e6-fKI" secondAttribute="top" id="2xp-Er-lFr"/>
                                 <constraint firstAttribute="trailing" secondItem="Aho-jI-4Mm" secondAttribute="trailing" id="7J8-Is-TgJ"/>
                                 <constraint firstItem="Aho-jI-4Mm" firstAttribute="height" secondItem="QJz-e6-fKI" secondAttribute="height" id="GQO-aW-Xtx"/>
                                 <constraint firstItem="Aho-jI-4Mm" firstAttribute="leading" secondItem="QJz-e6-fKI" secondAttribute="leading" id="N3M-qQ-Ctr"/>
