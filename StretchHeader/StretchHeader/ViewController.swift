@@ -25,7 +25,7 @@ class ViewController: UITableViewController {
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let headerView = self.tableView.tableHeaderView as! HeaderView
-        headerView.containerViewDidScroll(ToOffset: scrollView.contentOffset, withInset: scrollView.contentInset)
+        headerView.containerViewDidScroll(toOffset: scrollView.contentOffset, withInset: scrollView.contentInset)
     }
 
 }
