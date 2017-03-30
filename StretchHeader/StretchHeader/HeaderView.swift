@@ -16,21 +16,19 @@ import UIKit
 class HeaderView: UIView {
     
     @IBOutlet weak var redView: UIView!
-    @IBOutlet weak var redViewEqualHeightSuperView: NSLayoutConstraint!
     @IBOutlet weak var imageBottomEqualRedViewBottom: NSLayoutConstraint!
     @IBOutlet weak var imageHeightEqualRedViewHeight: NSLayoutConstraint!
     
-    func containerViewDidScroll(ToOffset offset: CGPoint, withInset inset: UIEdgeInsets) {
-        redViewEqualHeightSuperView.constant = inset.top
+    func containerViewDidScroll(toOffset offset: CGPoint, withInset inset: UIEdgeInsets) {
         
         //when tableView scrolls DOWN, offset is -ve
         //when tableView scrolls UP, offset is +ve
-        let offsetForScrollView = offset.y + inset.top
+        let scrollViewOffset = offset.y + inset.top
 
         //this reverses the offset so it shows the height increase direction
-        let offsetY = -(offsetForScrollView)
+        let heightIncrease = -(scrollViewOffset)
         
-        if offsetY > 0 {
+        if heightIncrease > 0 {
             //if the height is increasing then the redView should STOP clipping all its subviews to its bounds so the imageview EXPANDS with it due to its Aspect Fill property
             //even though clipsToBounds==false is the default value this assignment is also needed to complete the toggle from the state change below
             redView.clipsToBounds = false
@@ -39,17 +37,18 @@ class HeaderView: UIView {
             redView.clipsToBounds = true
         }
         
-        if offsetY >= 0 {
+        if heightIncrease >= 0 {
             //if the height is increasing, then keep the imageView bottom locked to Red View Bottom
             imageBottomEqualRedViewBottom.constant = 0
         }else{
             //if the height is decreasing, then lock the imageView to the redView's bottom with a positive offset so that the image seems to sun set but also move up since only half the offset is used
-            imageBottomEqualRedViewBottom.constant = -offsetY / 2
+            imageBottomEqualRedViewBottom.constant = -heightIncrease / 2
         }
         
         //if the height is increasing,, then INCREASE the imageView's height by the offset
         //if the height is decreasing, then DECREASE the imageView's height but honor the inset
-        imageHeightEqualRedViewHeight.constant = max(offsetY + inset.top, inset.top)
+        imageHeightEqualRedViewHeight.constant = max(heightIncrease + inset.top, inset.top)
 
     }
+    
 }
